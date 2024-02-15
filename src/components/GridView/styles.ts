@@ -28,5 +28,6 @@ export const GridItem = styled.div`
   .cover {
     width: 100px;
     height: 100px;
+    object-fit: cover;
   }
 `;

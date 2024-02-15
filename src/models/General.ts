@@ -9,6 +9,7 @@ export interface TabProps{
 export interface Recept{
     id: number
     name: string
+    image_url: string
 }
 
 export interface ContentPart {

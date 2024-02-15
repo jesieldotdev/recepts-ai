@@ -15,7 +15,7 @@ const GridView = ({ recepts, className }: GridViewProps) => {
             {recepts.length && recepts.map(recept => (
                 <div key={recept?.id}>
                     <S.GridItem key={recept?.id}>
-                        <Image className='cover' src={pizzaImage} alt="Pizza" />
+                        <img className='cover' src={recept.image_url} alt="Pizza" />
                     </S.GridItem>
                     <p className='name'>{recept?.name}</p>
 

@@ -9,44 +9,19 @@ import { Recept, TabProps } from '@/models/General'
 import GridView from '@/components/GridView'
 import WomenCooking from '../../assets/images/women_cooking.jpeg'
 import Image from 'next/image';
+import { useAppContext } from '@/context/AppContext';
 
 
 
 const HomeScreen = () => {
 
-    const recepts: Recept[] = [
-        {
-            id: 1,
-            name: 'Arroz',
-        },
-        {
-            id: 2,
-            name: 'Feijão',
-        },
-        {
-            id: 3,
-            name: 'Macarrao',
-        },
-        {
-            id: 4,
-            name: 'Torta',
-        },
-        {
-            id: 5,
-            name: 'Bolo',
-        },
-        {
-            id: 6,
-            name: 'Chá',
-        },
-    ]
-
+    const {recipes} = useAppContext()
 
     const tabs: TabProps[] = [
         {
             id: 0,
             name: 'Pratos',
-            content: <GridView className='mt-16' recepts={recepts} />
+            content: <GridView className='mt-16' recepts={recipes} />
         },
         {
             id: 1,
