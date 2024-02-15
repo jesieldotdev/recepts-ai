@@ -31,7 +31,24 @@ export async function generateResponseFromAi(res: string): Promise<ApiResponse> 
 }
 
 export async function getRecepts() {
-  return fetch("/api/categorias")
+  return fetch("/api/all")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro ao fazer a solicitação para a API");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Erro ao fazer a solicitação para a API:", error);
+      return error;
+    });
+}
+
+export async function getCategories() {
+  return fetch("/api/categories")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Erro ao fazer a solicitação para a API");

@@ -15,13 +15,15 @@ import { useAppContext } from '@/context/AppContext';
 
 const HomeScreen = () => {
 
-    const {recipes} = useAppContext()
+    const {recipes, categories} = useAppContext()
 
     const tabs: TabProps[] = [
         {
             id: 0,
             name: 'Pratos',
-            content: <GridView className='mt-16' recepts={recipes} />
+            content:<>
+             <GridView className='mt-16' categories={categories} recepts={recipes} />
+             </>
         },
         {
             id: 1,
@@ -46,7 +48,7 @@ const HomeScreen = () => {
 
             {/* <CookingSVG className='cooking_svg' /> */}
             <Image src={WomenCooking} className='top_img' alt='women' />
-            <ThreeColumnTabs tabs={tabs || []} />
+            <ThreeColumnTabs recepts={recipes} categories={categories} tabs={tabs || []} />
 
             <SimpleBottomNavigation className='bottom_nav' />
         </S.HomeContainer>

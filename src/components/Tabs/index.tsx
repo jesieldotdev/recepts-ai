@@ -4,7 +4,8 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme, SxProps, ThemeProvider } from '@mui/material/styles';
-import { TabProps } from '@/models/General';
+import { Category, Recept, TabProps } from '@/models/General';
+import GridView from '../GridView';
 
 const theme = createTheme({
     palette: {
@@ -19,20 +20,21 @@ const theme = createTheme({
 
 interface ThreeColTabsProps {
     tabs: TabProps[]
+    categories: Category[]
+    recepts: Recept[]
 }
 
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
     value: number;
-
 }
 
 const tabStyle = {
     textTransform: 'inherit',
     fontSize: 18,
     fontFamily: 'Poppins',
-    fontWeight: 300
+    fontWeight: 600
 } as SxProps
 
 function TabPanel(props: TabPanelProps) {
@@ -53,6 +55,7 @@ function TabPanel(props: TabPanelProps) {
                         justifyContent: 'center',
                         alignItems: 'center',
                         // height: 'calc(100vh - 48px)', // Ajusta a altura do painel subtraindo a altura das guias
+                        overflowY: 'auto', // Habilita o scroll vertical quando necessário
                     }}
                 >
                     <div>{children}</div>
@@ -62,7 +65,7 @@ function TabPanel(props: TabPanelProps) {
     );
 }
 
-export default function ThreeColumnTabs({ tabs }: ThreeColTabsProps) {
+export default function ThreeColumnTabs({ tabs, categories, recepts }: ThreeColTabsProps) {
     const [value, setValue] = useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -82,19 +85,21 @@ export default function ThreeColumnTabs({ tabs }: ThreeColTabsProps) {
                     // height: '100vh', 
                 }}
             >
-                <Tabs  sx={{ indicator: { height: 4 } }} value={value} onChange={handleChange} aria-label="Three column tabs example">
+                <Tabs sx={{ indicator: { height: 4 } }} value={value} onChange={handleChange} aria-label="Three column tabs example">
                     {
-                        tabs && tabs.map(tab => <Tab key={tab.id} disableRipple sx={tabStyle} label={tab.name} />)
+                        categories && categories.map(category => <Tab key={category.id} disableRipple sx={tabStyle} label={category.name} />)
                     }
                 </Tabs>
                 <Box sx={{
                     width: '100%',
-                    // backgroundColor: theme.palette.primary.main
+                    height: 'calc(60vh - 64px)', // Ajusta a altura do conteúdo das tabs subtraindo a altura das guias
+                    overflow: 'auto', // Habilita o scroll vertical quando necessário
                 }}>
 
-                    {tabs.map(tab => <TabPanel key={tab.id} value={value} index={tab.id}>
-                        {tab.content}
-                    </TabPanel>)
+                    {categories.map(category =>
+                        <TabPanel key={category.id} value={value} index={category.id}>
+                            <GridView className='mt-16' category={category} recepts={recepts} categories={categories} />
+                        </TabPanel>)
                     }
 
                 </Box>

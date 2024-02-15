@@ -9,8 +9,36 @@ export const GridViewContainer = styled.div`
     text-align: center;
     margin-top: 8px;
     color: #906151;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
+
+  .skeleton-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.skeleton-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc; /* Cor do esqueleto */
+  animation: pulse 1.5s infinite alternate; /* Animação do esqueleto */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 `;
 
 export const GridItem = styled.div`
@@ -26,8 +54,9 @@ export const GridItem = styled.div`
   box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.3);
 
   .cover {
-    width: 100px;
-    height: 100px;
+    /* width: 100px; */
+    width: 100%;
+    height: 10   NZB0px;
     object-fit: cover;
   }
 `;

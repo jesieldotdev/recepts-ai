@@ -10,6 +10,10 @@ export interface Recept{
     id: number
     name: string
     image_url: string
+    category: {
+        id: number,
+        name: string
+    }
 }
 
 export interface ContentPart {
@@ -50,10 +54,14 @@ export interface ApiResponse {
     candidates: Candidate[];
     promptFeedback: PromptFeedback;
 }
-
-
 export interface Recipe{
     name: string
     ingredients: string[]
     instructions: string[]
 }
+
+export interface Category {
+    id: number;
+    name: string;
+    recepts: number[]
+  };
