@@ -22,7 +22,7 @@ const HomeScreen = () => {
             id: 0,
             name: 'Pratos',
             content:<>
-             <GridView className='mt-16' categories={categories} recepts={recipes} />
+             
              </>
         },
         {
@@ -48,7 +48,7 @@ const HomeScreen = () => {
 
             {/* <CookingSVG className='cooking_svg' /> */}
             <Image src={WomenCooking} className='top_img' alt='women' />
-            <ThreeColumnTabs recepts={recipes} categories={categories} tabs={tabs || []} />
+            <ThreeColumnTabs recepts={recipes} categories={categories} />
 
             <SimpleBottomNavigation className='bottom_nav' />
         </S.HomeContainer>

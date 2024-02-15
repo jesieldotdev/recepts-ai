@@ -19,7 +19,7 @@ const theme = createTheme({
 });
 
 interface ThreeColTabsProps {
-    tabs: TabProps[]
+    tabs?: TabProps[]
     categories: Category[]
     recepts: Recept[]
 }
