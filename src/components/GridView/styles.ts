@@ -56,7 +56,7 @@ export const GridItem = styled.div`
   .cover {
     /* width: 100px; */
     width: 100%;
-    height: 10   NZB0px;
+    height: 100px;
     object-fit: cover;
   }
 `;
