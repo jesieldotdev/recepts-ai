@@ -161,7 +161,7 @@ const ReceptPage = () => {
             </S.Header>
 
 
-            <S.Description className="pd-16">
+            <S.Description className="ml-16 mt-8">
                 <p>{reci.about}</p>
             </S.Description>
 
@@ -173,14 +173,14 @@ const ReceptPage = () => {
                     }
                 </div>
 
-                <div className="preparation">
+                <div className="preparation mt-32">
 
-                    <p className="title">Modo de preparo</p>
+                    <p className="title ml-16">Modo de preparo</p>
 
 
                     {reci.recipe.map(item => (
-                        <div className="passo">
-                            <p className="step">{item.id}° </p>
+                        <div className="step pd-8">
+                            <p className="item">{item.id}° </p>
                             <p>{item.desc}</p>
                         </div>
                     ))}
