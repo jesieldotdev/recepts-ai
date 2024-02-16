@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const HomeContainer = styled.div`
   background-color: #fbe2ce;
   min-height: 100vh;
-  padding: 16px;
   font-family: 'Poppins', sans-serif !important;
 
   .mt-8{
@@ -20,6 +19,10 @@ export const HomeContainer = styled.div`
   }
   .mt-64{
     margin-top: 64px;
+  }
+
+  .pd-16{
+    padding: 16px;
   }
 
   .search_button {
@@ -44,14 +47,15 @@ export const HomeContainer = styled.div`
 
   .top_img{
     /* width: 100vw; */
-    position: relative;
-    top: -16px;
-    left: -16px;
+    /* position: relative; */
+    /* top: 0px; */
+    /* left: 0px; */
     height: 300px;
     width: 100vw;
     object-fit: cover;
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
+    
 
   }
 

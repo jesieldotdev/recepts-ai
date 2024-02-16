@@ -81,7 +81,7 @@ export default function ThreeColumnTabs({ tabs, categories, recepts }: ThreeColT
                     justifyContent: 'center',
                     alignItems: 'center',
                     marginBottom: 32,
-                    marginTop: -2
+                    padding: '16px'
                     // height: '100vh', 
                 }}
             >

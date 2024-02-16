@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Category, Recept } from '@/models/General';
 import * as S from './styles';
 import pizzaImage from '../../assets/images/pizza.jpg';
+import ButtonBase from '@mui/material/ButtonBase'; // Importe ButtonBase do Material-UI
 
 interface GridViewProps {
     recepts: Recept[];
-    categories: Category[]
+    categories: Category[];
     className?: string;
-    category: Category
+    category: Category;
 }
 
 const GridView = ({ recepts, className, categories, category }: GridViewProps) => {
@@ -19,19 +20,19 @@ const GridView = ({ recepts, className, categories, category }: GridViewProps) =
 
     function receptsFromCategory() {
         if (recepts && category) {
-            const data = recepts.filter(item => item.category.id === category.id)
-            return data
+            const data = recepts.filter(item => item.category.id === category.id);
+            return data;
         }
-        return []
-
+        return [];
     }
 
     return (
         <S.GridViewContainer className={className}>
             {receptsFromCategory().map(recept => (
                 <div key={recept?.id}>
-                    <S.GridItem key={recept?.id}>
-                        {!imageLoaded && (
+
+                    <S.GridItem>
+                        {imageLoaded && (
                             <div className="skeleton-wrapper">
                                 <div className="skeleton-image" />
                             </div>
@@ -44,10 +45,11 @@ const GridView = ({ recepts, className, categories, category }: GridViewProps) =
                         />
                     </S.GridItem>
                     <p className='name'>{recept?.name}</p>
+
                 </div>
             ))}
         </S.GridViewContainer>
     );
-}
+};
 
 export default GridView;
