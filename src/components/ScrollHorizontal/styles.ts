@@ -34,7 +34,7 @@ export const ScrollHorizontalContainer = styled.div`
     border-radius: 30px;
   }
 
-  .icon_btn:focus {
-      background-color: #fdcb19;
-    }
+  .on {
+    background-color: #fdcb19;
+  }
 `;

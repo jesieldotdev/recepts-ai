@@ -1,28 +1,18 @@
 import styled from "styled-components";
-import ButtonBase from '@mui/material/ButtonBase';
+import ButtonBase from "@mui/material/ButtonBase";
 
 export const GridViewContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   padding: 8px;
-
-  .name {
-    text-align: center;
-    margin-top: 8px;
-    color: #906151;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
 
   .grid_item_wrapper {
     background-color: #fefefe;
     /* padding: 32px; */
     width: 100%;
-    min-width: 100px;
+    min-width: 132px;
     text-align: center;
-    border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -66,21 +56,53 @@ export const GridViewContainer = styled.div`
 
 export const GridItem = styled(ButtonBase)`
   background-color: #fefefe;
-  /* padding: 32px; */
+  padding: 4px;
   width: 100%;
-  min-width: 100px;
+  min-width: 132px;
   text-align: center;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 4px 3px 0px rgba(0, 0, 0, 0.1);
+
   cursor: pointer;
 
   .cover {
     /* width: 100px; */
     width: 100%;
+    border-radius: 8px;
+    /* border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px; */
+    height: 100px;
     height: 100px;
     object-fit: cover;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4px;
+  }
+
+  .name,
+  .time {
+    text-align: center;
+    margin-top: 8px;
+    color: #383838;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .time {
+    font-size: 10px;
+    /* position: relative;
+    top: -44px;
+    left: -16px;
+    color: #fefefe;
+    padding: 4px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3); */
   }
 `;

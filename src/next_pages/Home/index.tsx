@@ -11,52 +11,39 @@ import Image from 'next/image';
 import { useAppContext } from '@/context/AppContext';
 import AppBar from '@/components/AppBar';
 import Greetings from '@/components/Greetings';
-import SearchBar from '@/components/SearchBar'; 
+import SearchBar from '@/components/SearchBar';
 import ScrollHorizontal from '@/components/ScrollHorizontal';
 
 
 
 const HomeScreen = () => {
 
-    const {recipes, categories} = useAppContext()
+    const { recipes, categories } = useAppContext()
 
-    const tabs: TabProps[] = [
-        {
-            id: 0,
-            name: 'Pratos',
-            content:<>
-             
-             </>
-        },
-        {
-            id: 1,
-            name: 'Bebidas',
-            content: <>2</>
-
-        },
-        {
-            id: 2,
-            name: 'Pratos',
-            content: <>3</>
-
-        },
-    ]
-
+    const [selectedCategory, setSelectedCategory] = React.useState<number>(0)
+console.log(categories)
 
     return (
         <S.HomeContainer>
             <AppBar className='pd-16 mt-16' />
             <Greetings className='pd-16 mt-8' />
-            <SearchBar className='pd-16 mt-16'/>
-            <ScrollHorizontal className='mt-16 ml-16 mr-16'/>
+            <SearchBar className='pd-16 mt-16' />
+            <ScrollHorizontal
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                className='mt-16 ml-16 mr-16' />
             {/* <IconButton className='search_button'>
                 <MagnifyingGlass color='#fefefe' size={20} />
             </IconButton> */}
 
             {/* <CookingSVG className='cooking_svg' /> */}
             {/* <Image src={WomenCooking} className='top_img' alt='women' /> */}
-            <ThreeColumnTabs recepts={recipes} categories={categories} />
-
+            {/* <ThreeColumnTabs recepts={recipes} categories={categories} /> */}
+            <GridView
+                className='mt-16 pd-16'
+                categories={categories}
+                category={categories.find(item => item.id === selectedCategory)}
+                recepts={recipes} />
             <SimpleBottomNavigation className='bottom_nav' />
         </S.HomeContainer>
 

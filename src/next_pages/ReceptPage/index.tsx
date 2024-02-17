@@ -5,6 +5,7 @@ import * as S from './styles'
 import { IconButton } from "@mui/material";
 import { ArrowLeft } from "styled-icons/fa-solid";
 import { useRouter } from "next/router";
+import Tags from "@/components/Tags";
 
 const ReceptPage = () => {
 
@@ -147,6 +148,8 @@ const ReceptPage = () => {
         }
     });
 
+    const tags = reci.slugs.map(item => ({ id: reci.id, name: item }))
+
     return (
         <S.ReceptContainer>
             <img className="img_cover" src={reci?.img} />
@@ -203,16 +206,10 @@ const ReceptPage = () => {
                     ))}
 
                 </div>
-
-                <div className="pills">
-                    {reci.slugs.map(item => (
-                        <p>{item}</p>
-
-                    ))}
-
-                </div>
-
-
+                {
+                    !!tags ? <Tags className="mt-16" tags={tags} /> :
+                        null
+                }
 
             </S.Content>
         </S.ReceptContainer>

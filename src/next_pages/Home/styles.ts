@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.div`
   /* background-color: #fbe2ce; */
-  min-height: 100vh;
+  max-height: 100vh;
   font-family: "Poppins", sans-serif !important;
   display: flex;
   flex-direction: column;
@@ -78,26 +78,6 @@ export const HomeContainer = styled.div`
   }
 
   .bottom_nav {
-    border-radius: 32px;
-    position: fixed;
-    left: 50%; /* Centralizar horizontalmente */
-    transform: translateX(
-      -50%
-    ); /* Corrigir para que o elemento fique centrado */
-    bottom: 16px;
-    width: 90vw; /* Defina o tamanho desejado */
-    max-width: 500px; /* Defina um tamanho máximo */
-    margin: 0 auto; /* Centralizar horizontalmente */
-    background-color: white; /* Adicione uma cor de fundo para o bottom navigation */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adicione uma sombra */
-    display: flex;
-    justify-content: space-around; /* Distribuir os itens uniformemente */
-    align-items: center; /* Centralizar verticalmente */
-    height: 72px;
-    font-size: 14px; /* Defina o tamanho da fonte */
-    .custom_label {
-      color: #906151;
-      font-family: "Poppins", sans-serif !important;
-    }
+   
   }
 `;
