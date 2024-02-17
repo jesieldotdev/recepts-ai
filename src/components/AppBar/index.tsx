@@ -20,7 +20,7 @@ const AppBar: React.FC<AppBarProps> = ({ className }) => {
                     <Bell size={24} color="#282828" />
                 </IconButton>
             </div>
-            <p className="greeting_message ml-16 mt-8">Olá, Cozinheiro!</p>
+            <p className="greeting_message mt-8">Olá, Cozinheiro!</p>
         </S.AppBarContainer>
     )
 

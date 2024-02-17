@@ -3,6 +3,7 @@ import { Category, Recept } from '@/models/General';
 import * as S from './styles';
 import pizzaImage from '../../assets/images/pizza.jpg';
 import ButtonBase from '@mui/material/ButtonBase'; // Importe ButtonBase do Material-UI
+import {useRouter} from "next/router"
 
 interface GridViewProps {
     recepts: Recept[];
@@ -13,6 +14,8 @@ interface GridViewProps {
 
 const GridView = ({ recepts, className, categories, category }: GridViewProps) => {
     const [imageLoaded, setImageLoaded] = useState<boolean>(true);
+    
+    const router = useRouter()
 
     const handleImageLoad = () => {
         setImageLoaded(true);
@@ -31,7 +34,9 @@ const GridView = ({ recepts, className, categories, category }: GridViewProps) =
             {receptsFromCategory().map(recept => (
                 <div key={recept?.id}>
 
-                    <S.GridItem>
+                    <S.GridItem onClick={() => {
+                      router.push(`recept/${recept.name}`)
+                    }}>
                         {imageLoaded && (
                             <div className="skeleton-wrapper">
                                 <div className="skeleton-image" />
