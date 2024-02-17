@@ -2,8 +2,14 @@ import { Clock } from "@styled-icons/fa-regular/Clock";
 import { FireFlameCurved } from "@styled-icons/fa-solid/FireFlameCurved";
 import { Fire } from '@styled-icons/heroicons-outline/Fire'
 import * as S from './styles'
+import { IconButton } from "@mui/material";
+import { ArrowLeft } from "styled-icons/fa-solid";
+import { useRouter } from "next/router";
 
 const ReceptPage = () => {
+
+    const router = useRouter()
+
     const recipesMock = [
         {
             id: 1,
@@ -144,6 +150,17 @@ const ReceptPage = () => {
     return (
         <S.ReceptContainer>
             <img className="img_cover" src={reci?.img} />
+            <IconButton
+                onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    router.push('/')
+                }}
+                className="icon_btn">
+                <ArrowLeft
+                    color="#fefefe"
+                    size={18} />
+            </IconButton>
 
             <S.Header className="pd-16 mt-16">
                 <p className="title">{reci?.title}</p>
@@ -161,11 +178,11 @@ const ReceptPage = () => {
             </S.Header>
 
 
-            <S.Description className="ml-16 mt-8">
+            <S.Description className="ml-16">
                 <p>{reci.about}</p>
             </S.Description>
 
-            <S.Content className="pd-16">
+            <S.Content className="pd-16 mt-16">
                 <div className="ingredients">
                     <p className='title ml-16'>Ingredientes</p>
                     {

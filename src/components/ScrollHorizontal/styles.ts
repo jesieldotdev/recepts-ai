@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const ScrollHorizontalContainer = styled.div`
-  display: flex;
   color: #575757;
-  font-size: 12px;
-  font-weight: 600;
-  overflow-x: auto;
-  gap: 8px;
-  justify-content: center;
-  justify-self: center;
-  align-items: center;
-margin-left: auto;
-margin-right: auto;
-// width: 100%;
 
+  overflow-x: auto;
+  /* justify-content: center; */
+  /* justify-self: center; */
+  /* align-items: center; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  // width: 100%;
+
+  .wrapper {
+    display: flex;
+    gap: 8px;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -23,8 +24,8 @@ margin-right: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    .
+    font-size: 12px;
+    font-weight: 600;
   }
 
   .icon_btn {
@@ -32,7 +33,8 @@ margin-right: auto;
     background-color: #f5f5f5;
     border-radius: 30px;
   }
-  .carrossel-menu .icon_btn:hover {
-    background-color: #ffd634;
-  }
+
+  .icon_btn:focus {
+      background-color: #fdcb19;
+    }
 `;

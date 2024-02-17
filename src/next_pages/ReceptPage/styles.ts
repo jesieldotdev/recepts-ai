@@ -28,6 +28,13 @@ export const ReceptContainer = styled.div`
     margin-top: 32px;
   }
 
+  .icon_btn {
+    background: rgba(1, 1, 1, 0.3);
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+
   .img_cover {
     height: 200px;
     width: 100vw;
@@ -74,30 +81,27 @@ export const Content = styled.div`
     background-color: none;
   }
 
-
-    .preparation {
-      .title {
-        border-style: none;
-      
-      }
-
-      .step {
-        border-style: solid;
-        border-top-style: none;
-        border-right-style: none;
-        /*border-left-style: none;*/
-        border-bottom-style: none;
-        display: flex;
-        
-      }
-
-      .item {
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 1;
-        margin-right: 16px;
-      }
+  .preparation {
+    .title {
+      border-style: none;
     }
+
+    .step {
+      border-style: solid;
+      border-top-style: none;
+      border-right-style: none;
+      /*border-left-style: none;*/
+      border-bottom-style: none;
+      display: flex;
+    }
+
+    .item {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1;
+      margin-right: 16px;
+    }
+  }
   .ingredients {
     margin-bottom: 16px;
     .item {
@@ -112,7 +116,6 @@ export const Content = styled.div`
       border-radius: 3px;
       margin-top: 16px;
     }
-
 
     .pills {
       display: flex;

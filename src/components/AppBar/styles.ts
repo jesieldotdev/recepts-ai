@@ -6,7 +6,7 @@ export const AppBarContainer = styled.div`
     justify-content: space-between;
   }
 
-  .greeting_message{
+  .greeting_message {
     color: #929292;
     font-size: 16px;
     font-weight: 500;
@@ -14,9 +14,9 @@ export const AppBarContainer = styled.div`
 
   .icon_btn {
     border-radius: 8px;
+  }
 
-    &:hover {
-      background-color: #fdcb19;
-    }
+  .bg_primary {
+    background-color: #fdcb19;
   }
 `;

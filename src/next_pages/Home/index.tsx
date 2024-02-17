@@ -11,7 +11,7 @@ import Image from 'next/image';
 import { useAppContext } from '@/context/AppContext';
 import AppBar from '@/components/AppBar';
 import Greetings from '@/components/Greetings';
-import SearchBar from '@/components/SearchBar';
+import SearchBar from '@/components/SearchBar'; 
 import ScrollHorizontal from '@/components/ScrollHorizontal';
 
 
@@ -46,7 +46,7 @@ const HomeScreen = () => {
     return (
         <S.HomeContainer>
             <AppBar className='pd-16 mt-16' />
-            <Greetings className='pd-16 mt-16' />
+            <Greetings className='pd-16 mt-8' />
             <SearchBar className='pd-16 mt-16'/>
             <ScrollHorizontal className='mt-16 ml-16 mr-16'/>
             {/* <IconButton className='search_button'>
