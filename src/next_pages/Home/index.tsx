@@ -45,10 +45,10 @@ const HomeScreen = () => {
 
     return (
         <S.HomeContainer>
-            <AppBar className='pd-16' />
-            <Greetings className='pd-16' />
-            <SearchBar className='pd-16'/>
-            <ScrollHorizontal className='m-center ml-16 mr-16 pd-8'/>
+            <AppBar className='pd-16 mt-16' />
+            <Greetings className='pd-16 mt-16' />
+            <SearchBar className='pd-16 mt-16'/>
+            <ScrollHorizontal className='mt-16 ml-16 mr-16'/>
             {/* <IconButton className='search_button'>
                 <MagnifyingGlass color='#fefefe' size={20} />
             </IconButton> */}

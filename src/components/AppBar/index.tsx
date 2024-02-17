@@ -14,13 +14,13 @@ const AppBar: React.FC<AppBarProps> = ({ className }) => {
         <S.AppBarContainer className={className}>
             <div className="flex_container">
                 <IconButton className="icon_btn">
-                    <User size={32} color="#282828" />
+                    <User size={24} color="#282828" />
                 </IconButton>
                 <IconButton className="icon_btn">
-                    <Bell size={32} color="#282828" />
+                    <Bell size={24} color="#282828" />
                 </IconButton>
             </div>
-            <p className="greeting_message ml-8 mt-8">Olá, Cozinheiro!</p>
+            <p className="greeting_message ml-16 mt-8">Olá, Cozinheiro!</p>
         </S.AppBarContainer>
     )
 

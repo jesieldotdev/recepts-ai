@@ -5,20 +5,26 @@ export const ScrollHorizontalContainer = styled.div`
   color: #575757;
   font-size: 12px;
   font-weight: 600;
-  overflow-x: scroll;
+  overflow-x: auto;
   gap: 8px;
   justify-content: center;
   justify-self: center;
   align-items: center;
+margin-left: auto;
+margin-right: auto;
+// width: 100%;
 
 
   &::-webkit-scrollbar {
     display: none;
   }
 
-  .carrossel-item {
+  .item {
     justify-content: center;
     align-items: center;
+    text-align: center;
+    
+    .
   }
 
   .icon_btn {

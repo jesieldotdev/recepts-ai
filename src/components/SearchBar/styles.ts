@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SearchBarContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   .search {
     display: flex;
@@ -20,9 +21,9 @@ export const SearchBarContainer = styled.div`
   }
 
   .search input {
-    /* min-width: 300px; */
-    background-color: red;
+    min-width: 80%;
     width: fit-content;
+    justify-content: center;
     background: transparent;
     border-style: none;
     font-size: 16px;
@@ -43,11 +44,11 @@ export const SearchBarContainer = styled.div`
   }
 
   .magnify {
-    /* margin-left: 16px; */
+    margin-left: 16px; 
   }
 
   .controls {
-    /* margin-right: 16px; */
+     margin-right: 16px; 
     box-shadow: 2px 4px 3px 0px rgba(0, 0, 0, 0.1);
     background-color: #fefefe;
     border-radius: 8px;

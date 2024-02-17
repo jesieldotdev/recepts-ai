@@ -41,7 +41,8 @@ export const HomeContainer = styled.div`
   }
 
   .pd-16 {
-    padding: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .search_button {
