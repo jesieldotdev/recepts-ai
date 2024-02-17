@@ -87,7 +87,7 @@ export default function ThreeColumnTabs({ tabs, categories, recepts }: ThreeColT
             >
                 <Tabs sx={{ indicator: { height: 4 } }} value={value} onChange={handleChange} aria-label="Three column tabs example">
                     {
-                        categories && categories.map(category => <Tab key={category.id} disableRipple sx={tabStyle} label={category.name} />)
+                      categories &&  categories.map(category => <Tab key={category.id} disableRipple sx={tabStyle} label={category.name} />)
                     }
                 </Tabs>
                 <Box sx={{
@@ -96,7 +96,7 @@ export default function ThreeColumnTabs({ tabs, categories, recepts }: ThreeColT
                     overflow: 'auto', // Habilita o scroll vertical quando necessário
                 }}>
 
-                    {categories.map(category =>
+                    {categories && categories.map(category =>
                         <TabPanel key={category.id} value={value} index={category.id}>
                             <GridView className='mt-16' category={category} recepts={recepts} categories={categories} />
                         </TabPanel>)

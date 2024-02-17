@@ -59,7 +59,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         }
         async function fetchCategories() {
             try {
-                const res = await getCategories();
+                const res = await getCategories()
 
                 setCategories(res);
             } catch (err) {
@@ -71,8 +71,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
         fetchCategories()
     }, []);
 
-    // console.log(ai)
-    
 
     return (
         <AppContext.Provider value={{ 

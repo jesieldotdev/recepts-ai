@@ -1,40 +1,59 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  background-color: #fbe2ce;
+  /* background-color: #fbe2ce; */
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
+  display: flex;
+  flex-direction: column;
 
-  .mt-8{
+  .m-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mt-8 {
     margin-top: 8px;
   }
-  .mt-16{
+  .mt-16 {
     margin-top: 16px;
   }
-  .mt-32{
+  .mt-32 {
     margin-top: 32px;
   }
-  .mb-32{
+  .mb-32 {
     margin-bottom: 32px;
   }
-  .mt-64{
+  .mt-64 {
     margin-top: 64px;
   }
 
-  .pd-16{
+  .ml-8 {
+    margin-left: 8px;
+  }
+  .ml-16 {
+    margin-left: 16px;
+  }
+  .mr-8 {
+    margin-right: 8px;
+  }
+  .mr-16 {
+    margin-right: 16px;
+  }
+
+  .pd-16 {
     padding: 16px;
   }
 
   .search_button {
     background-color: #f59984;
-    padding: 8px;
+    padding: 12px;
     position: fixed;
     top: 16px;
     right: 16px;
     margin-right: 8px;
     margin-left: auto;
     display: flex;
-    z-index: -99;
+    /* z-index: -99; */
     /* left: 100%; */
   }
 
@@ -45,7 +64,7 @@ export const HomeContainer = styled.div`
     width: 100vw;
   } */
 
-  .top_img{
+  .top_img {
     /* width: 100vw; */
     /* position: relative; */
     /* top: 0px; */
@@ -55,15 +74,15 @@ export const HomeContainer = styled.div`
     object-fit: cover;
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
-    
-
   }
 
-  .bottom_nav{
+  .bottom_nav {
     border-radius: 32px;
     position: fixed;
     left: 50%; /* Centralizar horizontalmente */
-    transform: translateX(-50%); /* Corrigir para que o elemento fique centrado */
+    transform: translateX(
+      -50%
+    ); /* Corrigir para que o elemento fique centrado */
     bottom: 16px;
     width: 90vw; /* Defina o tamanho desejado */
     max-width: 500px; /* Defina um tamanho máximo */
@@ -76,8 +95,8 @@ export const HomeContainer = styled.div`
     height: 72px;
     font-size: 14px; /* Defina o tamanho da fonte */
     .custom_label {
-        color: #906151;
-        font-family: 'Poppins', sans-serif !important;
+      color: #906151;
+      font-family: "Poppins", sans-serif !important;
     }
   }
 `;
