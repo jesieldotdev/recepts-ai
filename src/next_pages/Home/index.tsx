@@ -4,9 +4,9 @@ import { MagnifyingGlass } from '@styled-icons/fa-solid/MagnifyingGlass'
 import CookingSVG from '@/assets/SvgsComponents/cooking'
 import SimpleBottomNavigation from '@/components/BottomNavigation'
 import ThreeColumnTabs from '@/components/Tabs'
-import { Recept, TabProps } from '@/models/General'
+import { RecipeProps, TabProps } from '@/models/General'
 import GridView from '@/components/GridView'
-import WomenCooking from '../../assets/images/women_cooking.jpg'
+// import WomenCooking from '../../assets/images/women_cooking.jpg'
 import Image from 'next/image';
 import { useAppContext } from '@/context/AppContext';
 import AppBar from '@/components/AppBar';
@@ -21,7 +21,8 @@ const HomeScreen = () => {
     const { recipes, categories } = useAppContext()
 
     const [selectedCategory, setSelectedCategory] = React.useState<number>(0)
-console.log(categories)
+    console.log(categories)
+    console.log(recipes)
 
     return (
         <S.HomeContainer>
@@ -39,11 +40,14 @@ console.log(categories)
             {/* <CookingSVG className='cooking_svg' /> */}
             {/* <Image src={WomenCooking} className='top_img' alt='women' /> */}
             {/* <ThreeColumnTabs recepts={recipes} categories={categories} /> */}
-            <GridView
-                className='mt-16 pd-16'
-                categories={categories}
-                category={categories.find(item => item.id === selectedCategory)}
-                recepts={recipes} />
+            {
+                categories && categories.length ? <GridView
+                    className='mt-16 pd-16'
+                    categories={categories}
+                    category={categories?.find(item => item.id === selectedCategory)}
+                    recepts={recipes} /> : null
+            }
+
             <SimpleBottomNavigation className='bottom_nav' />
         </S.HomeContainer>
 

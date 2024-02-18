@@ -1,10 +1,10 @@
-import { Category, Recept, Recipe } from '@/models/General';
+import { Category, RecipeProps } from '@/models/General';
 import { getCategories, getRecepts, validateFromAI } from '@/services/functions';
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 
 type AppContextProps = {
-    recipes: Recept[]
+    recipes: RecipeProps[]
     setAiResponse: (s:any)=>void
     aiResponse: any
     categories: Category[]
@@ -14,7 +14,7 @@ type AppContextProps = {
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-    const [recipes, setRecipes] = useState<Recept[]>([]);
+    const [recipes, setRecipes] = useState<RecipeProps[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [aiResponse, setAiResponse] = useState<Category[]>([]);
 
@@ -48,13 +48,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
 
     React.useEffect(() => {
-        async function fetchRecipes() {
+        async function fetchRecipes(): Promise<RecipeProps[]> {
             try {
                 const res = await getRecepts();
 
                 setRecipes(res);
+                return res
             } catch (err) {
                 console.log(err);
+                return []
             }
         }
         async function fetchCategories() {

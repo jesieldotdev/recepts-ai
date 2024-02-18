@@ -6,158 +6,49 @@ import { IconButton } from "@mui/material";
 import { ArrowLeft } from "styled-icons/fa-solid";
 import { useRouter } from "next/router";
 import Tags from "@/components/Tags";
+import React from "react";
+import { getReceptById } from "@/services/functions";
+import { RecipeProps } from "@/models/General";
 
 const ReceptPage = () => {
 
-    const router = useRouter()
+    const { query, push } = useRouter()
+    const [recipe, setRecipe] = React.useState<RecipeProps | null>()
+    const { slug } = query
 
-    const recipesMock = [
-        {
-            id: 1,
-            title: "Sushi",
-            desc: "Japão",
-            img: "https://www.djapa.com.br/wp-content/uploads/2021/01/sushi.jpg",
-            time: '45 mins',
-            nivel: 'Médio',
-            slugs: ['Prato', 'Risoto', 'Panqueca', 'Yakisoba', 'Escondidinho'],
-            about: 'Sushi é um prato da culinária japonesa que possui origem numa antiga técnica de conservação da carne de peixe em arroz avinagrado.',
-            ingredients: [
-                '4 xícaras de arroz japonês, encontrado em lojas especializadas',
-                '4 colheres de sopa de vinagre de arroz para sushi encontrado em lojas especializadas',
-                '2 pepinos',
-                'Tirinhas de salmão',
-                '5 xícaras de água para cozimento',
-                '1 pacote e algas desidratadas para enrolar nori',
-                '2 cenouras',
-                'Folhas de alface',
-            ],
-            recipe: [
-                {
-                    id: 1,
-                    desc: 'Corte os pepinos e as cenouras em tiras e deixe em molho na água com uma pitada de sal.'
-                },
-                {
-                    id: 2,
-                    desc: 'Faça o arroz temperado com o sal.'
-                },
-                {
-                    id: 3,
-                    desc: 'Para o tempero do arroz misture tudo numa tigelinha ou copo.'
-                },
-                {
-                    id: 4,
-                    desc: 'Transfira o arroz cozido para uma tigela grande.'
-                },
-                {
-                    id: 5,
-                    desc: 'As poucos acrescente o molho de sushi, com a ajuda de uma colher de pau vire o arroz, sem mexer muito.'
-                },
-                {
-                    id: 6,
-                    desc: 'Deixe esfriar.'
-                },
-                {
-                    id: 7,
-                    desc: 'Forre a esteira para sushi com o plástico filme.'
-                },
-                {
-                    id: 8,
-                    desc: 'Coloque folha de alga com a parte mais áspera para cima.'
-                },
-                {
-                    id: 9,
-                    desc: 'Umedeça a palma das mãos para o arroz não grudar.'
-                },
-                {
-                    id: 10,
-                    desc: 'Preencha a alga com uma camada de arroz de mais ou menos 1 cm uniformemente, comece pelo meio da alga e espalhe, lembrando sempre de deixar 1 cm de sobra da alga para ter uma finalização elegante.'
-                },
-                {
-                    id: 11,
-                    desc: 'Após isso espalhe um um pouco de wassabi no centro do arroz de ponta a ponta, a quantidade e a gosto, lembrando que wassabi é forte, a quantidade de um grão de feijão é o suficiente, fica leve e dá um gostinho especial ao sushi.'
-                },
-                {
-                    id: 12,
-                    desc: 'Coloque 1 tira de pepino, 1 de cenoura, 1 de salmão e 1 folha de alface.'
-                },
-                {
-                    id: 13,
-                    desc: 'Enrole com o auxilio da esteira e com a ponta dos dedos como se fosse um rocambole, lembrando de tirar a esteira conforme a alga cola no arroz.'
-                },
-                {
-                    id: 14,
-                    desc: 'No final passe um pouco de água na alga e cole na própria ficará perfeito.'
-                },
-                {
-                    id: 15,
-                    desc: 'Mergulhe a faca no copo com água e corte em rolinhos em um único corte para não amassar o sushi, comece cortando pelo centro,assim eles ficarão da mesma altura.'
-                },
-                {
-                    id: 16,
-                    desc: 'Coloque em uma travessa e decore a seu gosto.'
-                },
-                {
-                    id: 17,
-                    desc: 'Servir com um pequeno prato de molho shoyu.'
-                },
-            ]
-        },
-        {
-            id: 2,
-            title: "Feijoada",
-            desc: "Brasil",
-            img: "https://cdn.panelinha.com.br/receita/1588270905274-39_Panelinha_12_02_200635.jpg",
-        },
-        {
-            id: 3,
-            title: "Chille",
-            desc: "America do Norte",
-            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMkpqCtmQPln2G0PJSZgE7KeiJBP0PDmtvFw&usqp=CAU",
-        },
-        {
-            id: 4,
-            title: "Macarronada",
-            desc: "Itália",
-            img: "https://www.sabornamesa.com.br/media/k2/items/cache/b5b56b2ae93d3dc958cf0c21c9383b18_XL.jpg",
-        },
-        {
-            id: 5,
-            title: "Lámen",
-            desc: "Japão",
-            img: "https://cdn0.tudoreceitas.com/pt/posts/7/0/4/lamen_japones_caseiro_facil_e_pratico_10407_600.webp",
-        },
-        {
-            id: 6,
-            title: "Pão de queijo",
-            desc: "Brasil",
-            img: "https://static.itdg.com.br/images/1200-675/1b388cd05b842609f91603072d894643/pao-de-queijo-facil-e-delicioso.png",
-        },
-        {
-            id: 7,
-            title: "Tapioca",
-            desc: "Brasil",
-            img: "https://receitadesabor.com.br/wp-content/uploads/2023/05/Como-Preparar-a-Tapioca-Molhadinha-Perfeita.jpg",
-        },
-    ];
 
-    let reci
+    React.useEffect(() => {
+        async function fetchRecipe(): Promise<RecipeProps | null> {
 
-    recipesMock.filter((item) => {
-        if (item.id === 1) {
-            reci = item;
+            try {
+                if (typeof (slug) === 'string') {
+                    const res = await getReceptById(slug);
+
+                    setRecipe(res);
+                    return res
+                } else {
+                    return null
+                }
+            } catch (err) {
+                console.log(err);
+                return null
+            }
+
         }
-    });
 
-    const tags = reci.slugs.map(item => ({ id: reci.id, name: item }))
+        fetchRecipe()
+    }, [slug])
+
+    const tags = recipe?.slugs.map(item => ({ id: recipe._id, name: item }))
 
     return (
         <S.ReceptContainer>
-            <img className="img_cover" src={reci?.img} />
+            <img className="img_cover" src={recipe?.image} />
             <IconButton
                 onClick={(e) => {
                     e.preventDefault()
                     e.stopPropagation()
-                    router.push('/')
+                    push('/')
                 }}
                 className="icon_btn">
                 <ArrowLeft
@@ -166,15 +57,16 @@ const ReceptPage = () => {
             </IconButton>
 
             <S.Header className="pd-16 mt-16">
-                <p className="title">{reci?.title}</p>
+                <p className="title">{recipe?.title}</p>
                 <div className="info mt-8">
                     <div className="item">
                         <Clock size={14} />
-                        <p>{reci.time}</p>
+                        <p>{recipe?.time}</p>
                     </div>
                     <div className="item">
                         <FireFlameCurved size={14} />
-                        <p>{reci.nivel}</p>
+                        {/* <p>{recipe?.nivel}</p> */}
+                        <p>Médio</p>
                     </div>
                 </div>
 
@@ -182,14 +74,14 @@ const ReceptPage = () => {
 
 
             <S.Description className="ml-16">
-                <p>{reci.about}</p>
+                <p>{recipe?.about}</p>
             </S.Description>
 
             <S.Content className="pd-16 mt-16">
                 <div className="ingredients">
                     <p className='title ml-16'>Ingredientes</p>
                     {
-                        reci.ingredients.map(item => <p className="item">{item}</p>)
+                        recipe?.ingredients.map(item => <p className="item">{item}</p>)
                     }
                 </div>
 
@@ -198,10 +90,10 @@ const ReceptPage = () => {
                     <p className="title ml-16">Modo de preparo</p>
 
 
-                    {reci.recipe.map(item => (
+                    {recipe?.steps.map(item => (
                         <div className="step pd-8">
-                            <p className="item">{item.id}° </p>
-                            <p>{item.desc}</p>
+                            <p className="item">{item?.order}° </p>
+                            <p>{item?.description}</p>
                         </div>
                     ))}
 

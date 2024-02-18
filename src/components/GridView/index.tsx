@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Category, Recept } from '@/models/General';
+import { Category, RecipeProps } from '@/models/General';
 import * as S from './styles';
 import pizzaImage from '../../assets/images/pizza.jpg';
 import ButtonBase from '@mui/material/ButtonBase'; // Importe ButtonBase do Material-UI
 import { useRouter } from "next/router"
 
 interface GridViewProps {
-    recepts: Recept[];
+    recepts: RecipeProps[];
     categories: Category[];
     className?: string;
     category: Category;
@@ -21,21 +21,23 @@ const GridView = ({ recepts, className, categories, category }: GridViewProps) =
         setImageLoaded(true);
     };
 
-    function receptsFromCategory() {
+    function receptsFromCategory(): RecipeProps[] {
         if (recepts && category) {
-            const data = recepts.filter(item => item.category.id === category.id);
+            const data = recepts.filter(item => item.category.id === 7);
             return data;
         }
         return [];
     }
 
+console.log(receptsFromCategory())
+
     return (
         <S.GridViewContainer className={className}>
             {receptsFromCategory().map(recept => (
-                <div key={recept?.id}>
+                <div key={recept?._id}>
 
                     <S.GridItem onClick={() => {
-                        router.push(`recept/${recept.name}`)
+                        router.push(`recepts/${recept._id}`)
                     }}>
                         {imageLoaded && (
                             <div className="skeleton-wrapper">
@@ -44,8 +46,8 @@ const GridView = ({ recepts, className, categories, category }: GridViewProps) =
                         )}
                         <img
                             className={imageLoaded ? 'cover loaded' : 'cover'}
-                            src={recept.image_url}
-                            alt={recept.name}
+                            src={recept.image}
+                            alt={recept.title}
                             onLoad={handleImageLoad}
                         />
                         {/* <div className='info'>

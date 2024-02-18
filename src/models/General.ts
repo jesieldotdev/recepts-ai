@@ -6,16 +6,6 @@ export interface TabProps{
     content: React.JSX.Element
 }
 
-export interface Recept{
-    id: number
-    name: string
-    image_url: string
-    category: {
-        id: number,
-        name: string
-    }
-}
-
 export interface ContentPart {
     text: string;
 }
@@ -54,14 +44,37 @@ export interface ApiResponse {
     candidates: Candidate[];
     promptFeedback: PromptFeedback;
 }
-export interface Recipe{
-    name: string
-    ingredients: string[]
-    instructions: string[]
-}
+// export interface Recipe{
+//     name: string
+//     ingredients: string[]
+//     instructions: string[]
+// }
 
 export interface Category {
     id: number;
     name: string;
-    recepts: number[]
+    recepts: string[]
   };
+
+export interface RecipeCategory{
+    id: number
+    name: string
+}
+  export interface RecipeProps {
+    _id: string;
+    title: string;
+    description: string;
+    image: string;
+    time: string;
+    level: string;
+    slugs: string[];
+    about: string;
+    ingredients: string[];
+    steps: Step[];
+    category: RecipeCategory
+  }
+  
+  export interface Step {
+    order: number;
+    description: string;
+  }
