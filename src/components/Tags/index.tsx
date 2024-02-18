@@ -5,7 +5,7 @@ import { User } from '@styled-icons/boxicons-regular/User'
 import { Bell } from '@styled-icons/fa-regular/Bell'
 
 interface Tag {
-    id: number
+    id: string
     name: string
 }
 
@@ -20,8 +20,8 @@ const Tags: React.FC<TagsProps> = ({ className, tags }) => {
         <S.TagsContainer className={className}>
             <div className="wrapper">
                 {tags.map(item => (
-                    <S.TagItem>
-                        <p key={item.id}>{item.name}</p>
+                    <S.TagItem key={item.id}>
+                        <p>{item.name}</p>
                     </S.TagItem>
                 ))}
             </div>

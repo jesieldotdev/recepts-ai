@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme, SxProps, ThemeProvider } from '@mui/material/styles';
-import { Category, Recept, TabProps } from '@/models/General';
+import { Category, RecipeProps, TabProps } from '@/models/General';
 import GridView from '../GridView';
 
 const theme = createTheme({
@@ -21,7 +21,7 @@ const theme = createTheme({
 interface ThreeColTabsProps {
     tabs?: TabProps[]
     categories: Category[]
-    recepts: Recept[]
+    recepts: RecipeProps[]
 }
 
 interface TabPanelProps {

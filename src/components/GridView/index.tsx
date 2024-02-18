@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import { Category, RecipeProps } from '@/models/General';
 import * as S from './styles';
@@ -65,3 +66,4 @@ console.log(receptsFromCategory())
 };
 
 export default GridView;
+/* eslint-enable @next/next/no-img-element */

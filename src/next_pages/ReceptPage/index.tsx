@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { Clock } from "@styled-icons/fa-regular/Clock";
 import { FireFlameCurved } from "@styled-icons/fa-solid/FireFlameCurved";
 import { Fire } from '@styled-icons/heroicons-outline/Fire'
@@ -81,6 +83,7 @@ const ReceptPage = () => {
                 <div className="ingredients">
                     <p className='title ml-16'>Ingredientes</p>
                     {
+                        // eslint-disable-next-line react/jsx-key
                         recipe?.ingredients.map(item => <p className="item">{item}</p>)
                     }
                 </div>
@@ -91,7 +94,7 @@ const ReceptPage = () => {
 
 
                     {recipe?.steps.map(item => (
-                        <div className="step pd-8">
+                        <div key={item.order} className="step pd-8">
                             <p className="item">{item?.order}° </p>
                             <p>{item?.description}</p>
                         </div>
@@ -109,3 +112,4 @@ const ReceptPage = () => {
 }
 
 export default ReceptPage
+/* eslint-enable @next/next/no-img-element */

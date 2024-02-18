@@ -12,16 +12,18 @@ export default async function handler(
 ) {
   try {
     const { recipeId }  = req.query
-
-    if (!mongoose.Types.ObjectId.isValid(recipeId)) {
-      return res.status(400).json({ message: "Invalid recipeId" });
+    if(typeof(recipeId) === 'string'){
+      if (!mongoose.Types.ObjectId.isValid(recipeId)) {
+        return res.status(400).json({ message: "Invalid recipeId" });
+      }
+      const recept = await ReceptDB.findById(recipeId);
+      if (!recept) {
+        return res.status(404).send({ message: "Recept not found" });
+      } else {
+        res.send(recept);
+      }
     }
-    const recept = await ReceptDB.findById(recipeId);
-    if (!recept) {
-      return res.status(404).send({ message: "Recept not found" });
-    } else {
-      res.send(recept);
-    }
+  
   } catch (error) {
     res.status(500).send(error);
   }

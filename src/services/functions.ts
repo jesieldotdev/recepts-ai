@@ -28,7 +28,7 @@ export function generateResponseFromAi(res: string): Promise<ApiResponse> {
   });
 }
 
-export async function getCategories(): Promise<Category[] | null> {
+export async function getCategories(): Promise<Category[] | []> {
   try {
     const response = await fetch("/api/categories");
     if (!response.ok) {
@@ -38,7 +38,7 @@ export async function getCategories(): Promise<Category[] | null> {
     return data;
   } catch (error) {
     console.error("Erro ao fazer a solicitação para a API:", error);
-    return null;
+    return [];
   }
 }
 

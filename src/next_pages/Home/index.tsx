@@ -44,7 +44,7 @@ const HomeScreen = () => {
                 categories && categories.length ? <GridView
                     className='mt-16 pd-16'
                     categories={categories}
-                    category={categories?.find(item => item.id === selectedCategory)}
+                    category={categories.find(item => item.id === selectedCategory) || categories[0]}
                     recepts={recipes} /> : null
             }
 
