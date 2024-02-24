@@ -14,10 +14,10 @@ const AppBar: React.FC<AppBarProps> = ({ className, theme }) => {
     return (
         <S.AppBarContainer theme={theme} className={className}>
             <div className="flex_container">
-                <IconButton className="icon_btn">
+                <IconButton className="icon_btn box_shadow">
                     <User className="icon" />
                 </IconButton>
-                <IconButton className="icon_btn">
+                <IconButton className="icon_btn box_shadow">
                     <Bell className="icon" />
                 </IconButton>
             </div>
