@@ -28,7 +28,6 @@ const HomeScreen = () => {
 
     return (
         <S.HomeContainer theme={theme}>
-        <button onClick={()=>toggleTheme()}>Tema</button>
             <AppBar theme={theme} className='pd-16 mt-16' />
             <Greetings className='pd-16 mt-8' />
             <SearchBar className='pd-16 mt-16' />

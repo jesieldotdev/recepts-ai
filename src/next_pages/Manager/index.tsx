@@ -15,23 +15,22 @@ import SearchBar from "@/components/SearchBar";
 import ScrollHorizontal from "@/components/ScrollHorizontal";
 import { AddSquare } from "@styled-icons/fluentui-system-filled/AddSquare";
 import { NotepadEdit } from "@styled-icons/fluentui-system-regular/NotepadEdit";
+import ManagerViewController from "./viewController";
 
 const ManagerPage = () => {
-  const { theme } = useAppContext();
+  const { theme, toggleTheme } = useAppContext();
+  const { manager_menu_items } = ManagerViewController()
+
   return (
-    <>
-      <AppBar theme={theme} className="pd-16 mt-16" />
+    <S.ManageContainer theme={theme}>
+      <button onClick={() => toggleTheme()}>Tema</button>
+      <AppBar theme={theme} className="pd-16 pt-16" />
       <S.GridContainer className="pd-16 mt-16">
-        <S.Item>
-          <AddSquare size={64} />
-          Adicionar
-        </S.Item>
-        <S.Item>
-          <NotepadEdit size={64} />
-          Editar
-        </S.Item>
+        {
+          manager_menu_items.map(item => <S.Item className="box_shadow" theme={theme} key={item.id}>{item.icon} {item.title}</S.Item>)
+        }
       </S.GridContainer>
-    </>
+    </S.ManageContainer>
   );
 };
 

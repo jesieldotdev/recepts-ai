@@ -22,7 +22,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const [recipes, setRecipes] = useState<RecipeProps[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [aiResponse, setAiResponse] = useState<Category[]>([]);
-    const [theme, setTheme] = useState<ThemeType>(lightTheme);
+    const [theme, setTheme] = useState<ThemeType>(darkTheme);
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
