@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const AppBarContainer = styled.div`
+background-color : ${props => props.theme.background};
+    color: ${props => props.theme.text};
   .flex_container {
     display: flex;
     justify-content: space-between;

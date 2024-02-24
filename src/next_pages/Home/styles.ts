@@ -6,6 +6,8 @@ export const HomeContainer = styled.div`
   font-family: "Poppins", sans-serif !important;
   display: flex;
   flex-direction: column;
+  background-color : ${props => props.theme.background};
+    color: ${props => props.theme.text};
 
   .m-center {
     margin-left: auto;

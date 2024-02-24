@@ -1,7 +1,10 @@
 import { Category, RecipeProps } from '@/models/General';
 import { getCategories, getRecepts, validateFromAI } from '@/services/functions';
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+import {darkTheme, lightTheme} from "@/themes/themes"
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
+export type ThemeType = typeof lightTheme | typeof darkTheme;
 
 type AppContextProps = {
     recipes: RecipeProps[]
@@ -9,6 +12,8 @@ type AppContextProps = {
     aiResponse: any
     categories: Category[]
     setCategories: (c: Category[])=>void
+    toggleTheme: ()=>void
+    theme: ThemeType
 };
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -17,6 +22,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const [recipes, setRecipes] = useState<RecipeProps[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [aiResponse, setAiResponse] = useState<Category[]>([]);
+    const [theme, setTheme] = useState<ThemeType>(lightTheme);
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
+    };
 
     const prompt = ' retorne duas receitas dentro de um array em formato JSON limpo sem nenhum caractere de escape ou formatação adicional. As informações devem incluir o nome da receita, os ingredientes necessários e as instruções passo a passo. os indices em inglês.';
 
@@ -80,7 +90,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
             setAiResponse,
             aiResponse,
             categories,
-            setCategories
+            setCategories,
+            toggleTheme,
+            theme
              }}>
             {children}
         </AppContext.Provider>

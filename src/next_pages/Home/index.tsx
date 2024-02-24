@@ -18,15 +18,18 @@ import ScrollHorizontal from '@/components/ScrollHorizontal';
 
 const HomeScreen = () => {
 
-    const { recipes, categories } = useAppContext()
+    const { recipes, categories, theme, toggleTheme} = useAppContext()
+    
+    console.log(theme)
 
     const [selectedCategory, setSelectedCategory] = React.useState<number>(0)
     console.log(categories)
     console.log(recipes)
 
     return (
-        <S.HomeContainer>
-            <AppBar className='pd-16 mt-16' />
+        <S.HomeContainer theme={theme}>
+        <button onClick={()=>toggleTheme()}>Tema</button>
+            <AppBar theme={theme} className='pd-16 mt-16' />
             <Greetings className='pd-16 mt-8' />
             <SearchBar className='pd-16 mt-16' />
             <ScrollHorizontal
