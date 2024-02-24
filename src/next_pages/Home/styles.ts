@@ -9,43 +9,6 @@ export const HomeContainer = styled.div`
   background-color : ${props => props.theme.background};
     color: ${props => props.theme.text};
 
-  .m-center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .mt-8 {
-    margin-top: 8px;
-  }
-  .mt-16 {
-    margin-top: 16px;
-  }
-  .mt-32 {
-    margin-top: 32px;
-  }
-  .mb-32 {
-    margin-bottom: 32px;
-  }
-  .mt-64 {
-    margin-top: 64px;
-  }
-
-  .ml-8 {
-    margin-left: 8px;
-  }
-  .ml-16 {
-    margin-left: 16px;
-  }
-  .mr-8 {
-    margin-right: 8px;
-  }
-  .mr-16 {
-    margin-right: 16px;
-  }
-
-  .pd-16 {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
 
   .search_button {
     background-color: #f59984;
