@@ -20,6 +20,8 @@ import ManagerViewController from "./viewController";
 const ManagerPage = () => {
   const { theme, toggleTheme } = useAppContext();
   const { manager_menu_items } = ManagerViewController()
+  const API_URL = process.env.GOOGLE_STUDIO_AI_URL || "";
+
 
   return (
     <S.ManageContainer theme={theme}>

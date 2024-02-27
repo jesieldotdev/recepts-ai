@@ -12,7 +12,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-    background: '#333333',
+    background: '#181a1b',
     text: '#ffffff',
     primaryColor: '#007bff',
     secondaryColor: '#6c757d',
@@ -21,5 +21,5 @@ export const darkTheme = {
     hoverColor: '#0056b3',
     disabledColor: '#6c757d',
     successColor: '#28a745',
-    cardBackground: '#404040', // Cor de fundo para cards com pequeno contraste
+    cardBackground: '#1a1e1c', // Cor de fundo para cards com pequeno contraste
 };
